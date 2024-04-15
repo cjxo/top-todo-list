@@ -1,0 +1,654 @@
+:root {
+	/* backgrounds: blue-ish, grey-ish target */
+	--pal0: #2c3137;
+	--pal1: #353a40;
+	--pal2: #53585e;
+	--pal3: #3c3e40;
+	--pal4: #5f6973;
+	--pal5: #6841da;
+
+	/* TODO(christian): Should we add drop shadow colours? */
+
+	/* texts */
+	--text-col0: #f1f2f3;
+	--text-col1: #999ea4;
+	--text-col2: hsl(213, 12%, 62%);
+
+	--max-width-per-container: 1300px;
+
+	--global-font: "Trebuchet MS", sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: var(--global-font);
+	box-sizing: border-box;
+	height: 100vh;
+	background-color: var(--pal1);
+
+	display: flex;
+}
+
+input, select {
+	outline: none;
+	border: none;
+}
+
+input:focus,
+select:focus {
+	outline: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+/**/
+dialog {
+	border: none;
+	outline: none;
+	padding: 16px;
+	width: 300px;
+
+	background-color: var(--pal1);
+	box-shadow: 0px 0px 12px 0px var(--pal4);
+	border-radius: 8px;
+	color: var(--text-col0);
+
+	div {
+		text-align: center;
+	}
+}
+
+.form-content {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	padding: 0px 16px;
+}
+
+.form-content > div {
+	font-size: 18px;
+}
+
+dialog input,
+dialog select {
+	border: 1px solid var(--pal2);
+	background-color: var(--pal0);
+	color: var(--text-col0);
+
+	align-self: stretch;
+	border-radius: 4px;
+	caret-color: var(--text-col0);
+	padding: 8px;
+}
+
+dialog input:focus,
+dialog input:hover,
+dialog select:focus,
+dialog select:hover {
+	background-color: var(--pal1);
+	box-shadow: 0px 0px 2px 0px var(--pal2);
+	border: 1px solid rgb(153, 158, 164);
+}
+
+dialog form {
+	border: none;
+
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 4px;
+}
+
+dialog form > div:nth-child(1) {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+dialog form > div:nth-child(1) > div > label {
+	align-self: flex-start;
+}
+
+dialog form > div:nth-child(1) > div {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.close-form-btn {
+	margin-left: auto;
+	box-sizing: border-box;
+	padding: 4px;
+	border: 1px solid var(--pal1);
+	border-radius: 50%;
+
+	margin-bottom: 8px;
+}
+
+.close-form-btn:hover {
+	border: 1px solid var(--pal4);
+	box-shadow: 0px 0px 4px 0px var(--pal4);
+}
+
+.close-form-btn:active {
+	box-shadow: 0px 0px 4px 0px var(--text-col1);
+}
+
+.close-form-btn > div {
+	background-image: url(./imgs/window-close.svg);
+	background-repeat: no-repeat;
+	filter: invert(100%);
+	width: 24px;
+	height: 24px;
+}
+
+.finish-btn {
+	margin-top: 8px;
+	background-color: var(--pal1);
+	width: 128px;
+	height: 24px;
+	border-radius: 8px;
+	padding: 16px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+
+	border: 1px solid rgb(153, 158, 164);
+
+	color: var(--text-col0);
+}
+
+.finish-btn:hover, .set-as-finish-btn:hover {
+	box-shadow: 0px 1px 8px 0px var(--pal3);
+	border: 1px solid rgb(193, 198, 204);
+}
+
+.finish-btn:active, .set-as-finish-btn:active {
+	box-shadow: 0px 1px 8px 0px var(--pal2);
+	border: 1px solid rgb(240, 240, 240);
+}
+
+/**/
+
+button {
+	cursor: pointer;
+	outline: none;
+	border: none;
+	background-color: inherit;
+	margin: 0;
+	padding: 0;
+	font-family: "Trebuchet MS", sans-serif;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--pal3);
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--pal4);
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgb(153, 158, 164);
+}
+
+.side-bar {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 224px;
+
+	background-color: var(--pal0);
+	padding: 24px;
+	gap: 32px;
+	font-size: 18px;
+	
+	color: white;
+}
+
+.logo {
+	color: var(--text-col0);
+	font-size: 22px;
+	text-align: center;
+
+	border: 1px solid;
+	padding: 16px;
+
+	border-top-right-radius: 12px;
+	border-top-left-radius: 4px;
+
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 4px;
+	box-shadow: 0px 0px 2px 0px wheat;
+}
+
+.project-categories {
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	gap: 16px;
+}
+
+.project-entry {
+	display: flex;
+	flex-direction: column;
+}
+
+.project-entry > li {
+	align-self: center;
+	margin-top: 4px;
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.project-entry > li > input,
+.project-entry > li > .display-project-todo-btn {
+	color: var(--text-col1);
+	text-align: left;
+	padding: 8px 0px;
+	padding-left: 8px;
+
+	border-radius: 4px;
+
+	font-size: 14px;
+	flex-grow: 1;
+
+	/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_text/Wrapping_breaking_text */
+	inline-size: 210px;
+	overflow-wrap: break-word;
+	box-sizing: border-box;
+
+}
+
+.project-entry > li > .delete-project-entry-btn {
+	flex-shrink: 1;
+	border-radius: 4px;
+	margin-right: 4px;
+	padding: 8px;
+}
+
+.project-entry > li > .delete-project-entry-btn > div {
+	background-image: url("./imgs/trash-can-outline.svg");
+	filter: invert(100%);
+	border: none;
+	
+	width: 16px;
+	height: 16px;
+}
+
+.project-entry > li > button {
+	/* This border is just a hack to avoid stuff moving when hovering */
+	border: 1px solid var(--pal0);
+}
+
+.project-entry > li > button:hover,
+.project-entry > li > input:focus,
+.project-entry > li > input:hover {
+	background-color: var(--pal1);
+	box-shadow: 0px 0px 2px 0px var(--pal2);
+	border: 1px solid rgb(153, 158, 164);
+	/*border: 1px solid var(--pal5);*/
+}
+
+.entry-header {
+	display: flex;
+	align-items: center;
+	
+	background-color: var(--pal1);
+
+	border-radius: 4px;
+	
+	padding-left: 16px;
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.entry-title {
+	color: var(--text-col0);
+	margin-right: auto;
+}
+
+.entry-header > button {
+	width: 32px;
+	height: 32px;
+
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.entry-header > button:not(:last-child) {
+	margin-right: 4px;
+}
+
+.entry-header > button > div {
+	background-repeat: no-repeat;
+	background-position-y: center;
+	filter: invert(100%);
+}
+
+.entry-header > .add-project-entry-btn > .add-entry {
+	background-image: url("./imgs/plus.svg");
+	width: 24px;
+	height: 24px;
+}
+
+.entry-header > .expand-btn > .collapse {
+	background-image: url("./imgs/menu-up.svg");
+	width: 32px;
+	height: 32px;
+}
+
+.entry-header > .expand-btn > .expand {
+	background-image: url("./imgs/menu-down.svg");
+	width: 32px;
+	height: 32px;
+}
+
+.entry-header > .delete-category-btn > .delete-category {
+	background-image: url("./imgs/trash-can-outline.svg");
+	width: 20px;
+	height: 20px;
+}
+
+.entry-header > button:hover,
+.entry-header > button:active {
+	background-color: var(--pal2);
+}
+
+.entry-header > button:hover {
+	box-shadow: 1px 2px 4px 0px rgb(61, 61, 61);
+}
+
+.entry-header > button:active {
+	box-shadow: 1px 2px 4px 0px rgb(81, 81, 81);
+}
+
+.add-new-project-category {
+	margin-top: auto;
+}
+
+.add-new-project-category > fieldset {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 8px;
+	font-size: 14px;
+	padding: 16px;
+	border: 1px solid rgb(153, 158, 164);
+}
+
+.add-new-project-category input {
+	border: 1px solid var(--pal1);
+	background-color: var(--pal0);
+	color: var(--text-col0);
+
+	border-radius: 4px;
+	caret-color: var(--text-col0);
+	padding: 8px;
+}
+
+.add-new-project-category input:hover,
+.add-new-project-category input:focus {
+	border: 1px solid var(--pal4);
+}
+
+.add-new-project-category-btn {
+	margin-top: 8px;
+	background-color: var(--pal1);
+	width: 128px;
+	height: 24px;
+	border-radius: 8px;
+	padding: 16px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+
+	border: 1px solid rgb(153, 158, 164);
+
+	color: var(--text-col0);
+}
+
+.add-new-project-category-btn:hover {
+	box-shadow: 0px 1px 8px 0px var(--pal3);
+	border: 1px solid rgb(193, 198, 204);
+}
+
+.add-new-project-category-btn:active {
+	box-shadow: 0px 1px 8px 0px var(--pal2);
+	border: 1px solid rgb(240, 240, 240);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	
+	padding: 16px;
+	gap: 8px;
+
+	flex-grow: 1;
+}
+
+.header {
+	color: var(--text-col1);
+	font-size: 14px;
+	border-radius: 8px;
+	border: 1px solid var(--text-col0);
+	box-shadow: 0px 0px 2px 0px var(--text-col0);
+	text-align: center;
+
+	padding: 12px;
+}
+
+.entry-display {
+	display: flex;
+	flex-grow: 1;
+	box-sizing: border-box;
+
+	gap: 8px;
+}
+
+.entry-panel {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 360px;
+	flex-shrink: 0;
+	
+	padding: 8px;
+	border-radius: 8px;
+	
+	border: 1px solid var(--text-col0);
+}
+
+.entry-todos {
+	flex-grow: 1;
+	align-self: stretch;
+
+	/* what the frick????? I mean this height thing works though! */
+	height: 400px;
+	overflow-y: auto;
+
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.todo-card {
+	border: 2px solid var(--pal4);
+	padding: 8px;
+	border-radius: 8px;
+
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	text-align: start;
+}
+
+.complete {
+	background-color: var(--pal5);
+	border-radius: 50%;
+	padding: 4px;
+}
+
+.not-complete > div {
+	border: 1px solid white;
+	border-radius: 50%;
+	width: 22px;
+	height: 22px;
+}
+
+.complete > div {
+	background-image: url(./imgs/check.svg);
+	filter: invert(100%);
+	width: 16px;
+	height: 16px;
+}
+
+.card-content {
+	text-align: left;
+	flex-grow: 1;
+}
+
+.todo-title {
+	color: var(--text-col0);
+}
+
+.create-new-category {
+	margin-top: auto;
+}
+
+.create-new-todo,
+.create-new-category {
+	background-color: var(--pal5);
+	border-radius: 24px;
+	margin-left: auto;
+	padding: 8px;
+}
+
+.create-new-todo:hover,
+.create-new-category:hover {
+	box-shadow: 0px 0px 4px 0px var(--pal5);
+}
+
+.create-new-todo:active,
+.create-new-category:active {
+	box-shadow: 0px 0px 4px 0px var(--text-col1);
+}
+
+.create-new-todo > div,
+.create-new-category > div {
+	filter: invert(100%);
+	background-image: url(./imgs/plus.svg);
+	width: 32px;
+	height: 32px;
+}
+
+.todo-expanded {
+	border: 1px solid var(--text-col0);
+	flex-grow: 3;
+	border-radius: 8px;
+	
+	padding: 16px;
+	color: var(--text-col0);
+
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+#notes, .todo-title-header  {
+	background-color: inherit;
+	color: var(--text-col0);
+
+	border: 1px solid var(--pal1);
+}
+
+.todo-title-header, .additional-info {
+	display: flex;
+	align-items: center;
+}
+
+.todo-title-header > .title {
+	font-size: 24px;
+}
+
+.additional-info {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	margin-left: auto;
+	color: var(--text-col1);	
+	font-size: 16px;
+}
+
+.high-prio {
+	color: hsl(6, 69%, 45%);
+}
+
+.normal-prio {
+	color: hsl(117, 69%, 45%);
+}
+
+.notes-wrapper > label,
+.note-header { 
+	font-size: 20px;
+}
+
+.note-header,
+.todo-title-header {
+	padding: 8px 0px;
+}
+
+.set-as-finish-btn {
+	margin-top: auto;
+	margin-left: auto;
+	font-size: 16px;
+	border: 1px solid var(--text-col1);
+	padding: 8px 16px;
+	border-radius: 8px;
+	color: var(--text-col2);
+}
+
+#notes {
+	font-size: 16px;
+	font-family: var(--global-font);
+	outline: none;
+	resize: none;
+	color: var(--text-col1);
+	line-height: 1.5;
+	
+	height: 450px;
+}
+
+.notes-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+
+	max-height: 450px;
+	overflow-y: auto;
+}

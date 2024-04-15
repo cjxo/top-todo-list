@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Project Tracker</title>
+	<script defer src="bundle.js"></script></head>
+	
+	<body>
+		<div class="side-bar">
+			<div class="logo">Project Tracker</div>
+			<div class="project-categories">
+				
+			</div>
+			<button class="create-new-category">
+				<div></div>
+			</button>
+		</div>
+		
+		<!-- I SUCK AT UI DESIGN!!!!!!!!!!!!!!!! -->
+		<div class="content">
+			<div class="header">
+				<span class="project-category-name">Project Name</span>
+				<span class="divider">|</span>
+				<span class="project-entry-name">Name</span>
+			</div>
+			<div class="entry-display">
+				<div class="entry-panel">
+					<div class="entry-todos">
+						
+					</div>
+					<button class="create-new-todo">
+						<div></div>
+					</button>
+				</div>
+				<div class="todo-expanded">
+					
+				</div>
+			</div>
+
+			<dialog class="add-project-category-dlg">
+				<button class="close-form-btn"><div></div></button>
+				<div class="form-content">
+					<div>Add New Category</div>
+					<form>
+						<input type="text" id="new-project-category" placeholder="Work / School / Personal" required />
+						<button class="finish-btn">Finalize</button>
+					</form>
+				</div>
+			</dialog>
+
+			<dialog class="add-todo-dlg">
+				<button class="close-form-btn"><div></div></button>
+				<div class="form-content">
+					<div>Add New Todo</div>
+					<form>
+						<div>
+							<div>
+								<label for="new-todo">Todo Name: </label>
+								<input type="text" id="new-todo" placeholder="Finish Todolist Project" required />
+							</div>
+	
+							<div>
+								<label for="due-date">Due Date:</label>
+								<input type="date" id="due-date" placeholder="Finish Todolist Project" required />
+							</div>
+
+							<div>
+								<label for="priority">Priority:</label>
+								<select id="priority">
+									<option value="High">High</option>
+									<option value="Normal" selected>Normal</option>
+								</select>
+							</div>
+						</div>
+						<button class="finish-btn">Finish</button>
+					</form>
+				</div>
+			</dialog>
+		</div>
+	</body>
+</html>
+
+<!--
+
+-->
